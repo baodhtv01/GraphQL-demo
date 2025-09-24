@@ -3,6 +3,15 @@
 echo "🚀 GraphQL Laravel Demo Setup Script"
 echo "================================="
 
+# Create .env file if it doesn't exist
+if [ ! -f .env ]; then
+    echo "📄 Creating .env file from .env.example..."
+    cp .env.example .env
+    echo "✅ .env file created successfully!"
+else
+    echo "📄 .env file already exists, skipping creation"
+fi
+
 # Build and start containers
 echo "📦 Building and starting Docker containers..."
 docker-compose up -d --build
